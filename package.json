@@ -1,7 +1,7 @@
 {
-  "name": "history-please",
-  "version": "0.0.3",
-  "description": "Gives you a random Canadian hero from history",
+  "name": "mountain-please",
+  "version": "0.0.1",
+  "description": "Gives you a random mountain of cultural significance",
   "license": "MPL-2.0",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "package": "electron-packager . historymatic"
   },
   "bin": {
-    "history-please": "./bin/history-please.js"
+    "mountain-please": "./bin/mountain-please.js"
   },
     "devDependencies": {
     "electron": "1.4.5"

@@ -21,24 +21,21 @@ function getFileNames(pathName) {
         });
 }
 
-function getRandomHero(options) {
+function getRandomMountain(options) {
 
     let files = [];
-    if (!options.trends && !options.events) {
-        files = files.concat(getFileNames('../history/people'));
+    if (!options.other) {
+        files = files.concat(getFileNames('../mountain/8000'));
     }
-    if (!options.trends && !options.people) {
-        files = files.concat(getFileNames('../history/events'));
-    }
-    if (!options.cultural && !options.events) {
-        files = files.concat(getFileNames('../history/trends'));
+    if (!options.tall) {
+        files = files.concat(getFileNames('../mountain/events'));
     }
     
     const randomFilePath = files[Math.floor(Math.random() * files.length)];
     const text = fs.readFileSync(randomFilePath, {encoding: 'utf-8'})
     const html = fs.readFileSync(header) + text + fs.readFileSync(footer);
     const result = htmlToText.fromString(markdown.makeHtml(text));
-    console.log(LINE + result + '\n\nO Canada!'.yellow + LINE);
+    console.log(LINE + result + '\n\nTo the summit!'.yellow + LINE);
     if (options.browser) {
         const file = fs.writeFile(pathToServe, html, function(err) {
             if(err) {
@@ -49,4 +46,4 @@ function getRandomHero(options) {
     }
 }
 
-getRandomHero(args);
+getRandomMountain(args);
