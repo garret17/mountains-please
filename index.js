@@ -1,7 +1,12 @@
+const markdown = require('markdown-js');
+const htmlToText = require('html-to-text');
 const menubar = require("menubar");
 const {ipcMain} = require("electron");
 const getRandomRecipe = require("./lib/get-recipe");
-const mb = menubar({showDockIcon: true});
+const mb = menubar({showDockIcon: true, width: 800, height: 800});
+const BrowserWindow = ipcMain.BrowserWindow;
+
+
 
 mb.on("ready", () => {
   console.log("ready!");
@@ -11,6 +16,7 @@ mb.on("ready", () => {
 //   mb.window.openDevTools();
 // });
 
+
 ipcMain.on("get-recipe", (event, arg) => {
   getRandomRecipe()
     .then(text => event.sender.send("recipe", text))
@@ -19,3 +25,5 @@ ipcMain.on("get-recipe", (event, arg) => {
       event.sender.send("recipe", `Oops, there was an error: ${err}`);
     });
 });
+
+
