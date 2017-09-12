@@ -28,7 +28,7 @@ function getRandomMountain(options) {
         files = files.concat(getFileNames('../mountain/8000'));
     }
     if (!options.tall) {
-        files = files.concat(getFileNames('../mountain/events'));
+        files = files.concat(getFileNames('../mountain/other'));
     }
     
     const randomFilePath = files[Math.floor(Math.random() * files.length)];
